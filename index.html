@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registro de Atención Dental - ODONTO 22</title>
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body>
+  <div class="container" id="capture">
+    <h2 class="titulo">Registro de Atención Dental - ODONTO 22</h2>
+
+    <label>Nombre del paciente</label>
+    <input type="text" id="nombre" required />
+
+    <label>Celular</label>
+    <input type="tel" id="celular" required />
+
+    <label>Agregar nuevo tratamiento</label>
+    <input type="text" id="nuevoProcedimiento" />
+    <input type="number" id="precioProcedimiento" placeholder="Precio S/" />
+    <button onclick="agregarProcedimientoCatalogo()">Guardar en catálogo</button>
+
+    <label>Seleccionar tratamiento</label>
+    <select id="procedimientosSelect">
+      <option value="">-- Selecciona un tratamiento --</option>
+    </select>
+
+    <label>Cantidad</label>
+    <input type="number" id="cantidadProcedimiento" value="1" min="1" />
+
+    <button onclick="seleccionarProcedimiento()">Agregar a lista</button>
+
+    <table id="tablaProcedimientos">
+      <thead>
+        <tr>
+          <th>Tratamiento</th>
+          <th>Cantidad</th>
+          <th>Precio Unitario (S/)</th>
+          <th>Subtotal (S/)</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <label>Descuento (%)</label>
+    <input type="number" id="descuento" value="0" />
+
+    <button onclick="calcular()">Registrar y Generar Resultado</button>
+    <button onclick="eliminarDatos()" class="btn-danger">Eliminar Datos Guardados</button>
+
+    <div id="result"></div>
+    <button onclick="captura()">Descargar Captura</button>
+  </div>
+
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
